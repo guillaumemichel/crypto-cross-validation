@@ -1,6 +1,9 @@
 #!/bin/bash
 
 pathtosage="/Applications/SageMath/sage"
+pathtoparameters="parameters.txt"
+filename="hw3-"
+
 count=0
 sciper=0
 curr=0
@@ -9,7 +12,7 @@ while IFS='' read -r line || [[ -n "$line" ]]; do
         sciper=${line:7:6}
     elif [ "${line:0:6}" == "######" ]; then
         if [ $count -ne 1 ]; then
-            eval $pathtosage test3-$curr.py $param
+            eval '$pathtosage' '$filename$curr.py' '$param'
         fi
         echo ${line:7:19}
         param="$sciper"
@@ -22,6 +25,6 @@ while IFS='' read -r line || [[ -n "$line" ]]; do
         echo "$line"
     fi
     ((count++))
-done < "parameters.txt";
-eval $pathtosage test3-$curr.py $param
+done < $pathtoparameters
+eval '$pathtosage' '$filename$curr.py' '$param'
 
