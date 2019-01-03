@@ -2,7 +2,7 @@
 
 pathtosage="/Applications/SageMath/sage"
 pathtoparameters="parameters.txt"
-filename="test4-"
+filename="ex"
 
 count=0
 sciper=0
